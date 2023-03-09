@@ -1,11 +1,9 @@
 public class Main {
+
     public static void main(String[] args) {
-        Point p1=new Point(3,6);
-        Point p2=new Point(1,5);
-        Segment seg=new Segment(p1,p2);
-
-        System.out.println(seg.distance());
-
-        System.out.println(seg.toSvg());
+        // write your code here
+        Segment seg = new Segment(new Point(4,5 ),new Point(5,19 ));
+        Segment arr[]=Segment.perpendicular(seg,new Point(5,15));
+        System.out.println(arr[1].getSVG());
     }
 }
