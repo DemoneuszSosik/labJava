@@ -1,10 +1,28 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 public class SvgScene {
-    private Polygon[] polygons;
-    public void add(Polygon polygon){
-
+    private List<Polygon> list=new ArrayList<>();
+    private double width=500,height=500;
+    public void addPolygon(Polygon polygon){
+        list.add(polygon);
     }
-    public void save(String source){
-
+    public void save(String path){
+        try {
+            FileWriter file = new FileWriter(path);
+            file.write("<html>\n<body\n");
+            file.write(String.format(Locale.ENGLISH, "<svg height=\"%f\" width=\"%f\"",height,width));
+            for(Polygon p:list){
+                file.write("\t"+p.toSvg());
+            }
+            file.write("</svg>\n</body>\n</html>");
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }
 

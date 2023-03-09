@@ -1,3 +1,4 @@
+import javax.sound.sampled.Line;
 import java.util.Locale;
 public class Polygon {
     private Point[] vertices;
@@ -18,5 +19,8 @@ public class Polygon {
             s = s+p.x+","+p.y+" ";
         };
         return String.format(Locale.ENGLISH,"<polygon points=\"%s\" style=\"%s\"/>",s,style.toSvg());
+    }
+    public static square(Segment line,Style style){
+
     }
 }
